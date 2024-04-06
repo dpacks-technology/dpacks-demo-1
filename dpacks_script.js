@@ -7,12 +7,6 @@ const API_URL = backend_domain;
 const hash = window.location.hash.substr(1);
 const user = JSON.parse(localStorage.getItem('user'));
 
-// -- class checker --
-// let file_path = document.getElementById("dpack_admin_script").src;
-// let the_arr = file_path.split('/');
-// the_arr.pop();
-// const base_url = the_arr.join('/');
-
 // dpacks key
 console.log("dpacks: " + dpacks_key);
 
