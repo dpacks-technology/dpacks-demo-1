@@ -1,7 +1,9 @@
 // ©2024 DPacks Technology - All Rights Reserved
 
 const pageId = document.getElementsByTagName("body")[0].id;
-const API_URL = "http://34.47.130.27:4000";
+// const API_URL = "http://34.47.130.27:4000";
+const API_URL = "http://localhost:4000";
+const AUTH_API_URL = "http://34.47.130.27:4010";
 
 // Login view
 const hash = window.location.hash.substr(1);
@@ -37,7 +39,7 @@ function read() {
             }
         ).then(function (response) {
             if (response.data.exists === 1) {
-                fetch('https://data.testcod.top/dpacks-3e038.appspot.com/' + dpacks_key + '_' + pageId + '_' + id + '.json')
+                fetch('https://storage.googleapis.com/dpacks-3e038.appspot.com/' + dpacks_key + '_' + pageId + '_' + id + '.json')
                     .then(function (response) {
                         return response.json();
                     })
@@ -105,8 +107,7 @@ if (hash === "dpacks") {
             '<a href="https://dpacks.space/forgot" class="dpacks_forgot_password">Forgot Password?</a>' +
             '<div style="width: 100%;" class="con-mid dpacks_login_footer">' +
             '<p class="dpacks_copyright_text">' +
-            '<span>©' + new Date().getFullYear() + ' DPACKS TECHNOLOGY - </span>' +
-            '<strong><span>BY <a href="https://dpacks.netlify.app/" style="color: #000A2A; text-decoration: none;">DPACKS</a></span>' +
+            '<span>©' + new Date().getFullYear() + ' DPACKS TECHNOLOGY</span>' +
             '</strong></p>' +
             '</div>' +
             '</div>' +
@@ -131,8 +132,8 @@ function authHeader() {
 function dpacksLogin() {
     document.getElementById("dpacks-login-bad-credentials").style.display = "none";
     document.getElementById("dpacks-login-btn").innerText = "Loading...";
-    axios.post(API_URL + '/api/auth/signin', {
-            username: document.getElementById("dpacks_login_email").value,
+    axios.post(AUTH_API_URL + '/api/auth/signin', {
+            email: document.getElementById("dpacks_login_email").value,
             password: document.getElementById("dpacks_login_password").value
         }
     )
@@ -224,7 +225,7 @@ async function allJSave() {
             let xhr = new XMLHttpRequest();
             xhr.responseType = 'json';
             // xhr.open('GET', base_url + '/b2/' + dpacks_key + '_' + pageId + '_' + id + '.json');
-            xhr.open('GET', 'https://data.testcod.top/dpacks-3e038.appspot.com/' + dpacks_key + '_' + pageId + '_' + id + '.json');
+            xhr.open('GET', 'https://storage.googleapis.com/dpacks-3e038.appspot.com/' + dpacks_key + '_' + pageId + '_' + id + '.json');
             xhr.send();
             xhr.onload = function (e) {
                 if (xhr.readyState === 4) {
@@ -564,24 +565,16 @@ function admin() {
 
                     } else {
 
-                        fetch('https://data.testcod.top/dpacks-3e038.appspot.com/' + dpacks_key + '_' + pageId + '_' + id + '.json')
-                            .then(response => {
-                                if (!response.ok) {
-                                    throw new Error("HTTP error " + response.status);
-                                }
-                                return response.json();
-                            })
-                            .then(json => {
-                                appendData(json);
-                            })
-                            .catch(e => {
-                                console.log('error: ' + e);
-                            })
+                        axios.get('https://storage.googleapis.com/dpacks-3e038.appspot.com/' + dpacks_key + '_' + pageId + '_' + id + '.json').then(response => {
+                            appendData(response.data);
+                        })
+
+                        // appendData("");
 
                         // -- check if data file exists --
                         // let xhr = new XMLHttpRequest();
                         // xhr.responseType = 'json';
-                        // xhr.open('GET', 'https://data.testcod.top/dpacks-3e038.appspot.com/' + dpacks_key + '_' + pageId + '_' + id + '.json');
+                        // xhr.open('GET', 'https://storage.googleapis.com/dpacks-3e038.appspot.com/' + dpacks_key + '_' + pageId + '_' + id + '.json');
                         // xhr.send();
                         // xhr.onload = function (e) {
                         //     if (xhr.readyState === 4) {
@@ -632,7 +625,7 @@ function admin() {
                         //
                         //             //axios.get(base_url + '/b2/' + dpacks_key + '_' + pageId + '_' + id + '.json')
                         //             //fetch(base_url + '/b2/' + dpacks_key + '_' + pageId + '_' + id + '.json')
-                        //             fetch('https://data.testcod.top/dpacks-3e038.appspot.com/' + dpacks_key + '_' + pageId + '_' + id + '.json')
+                        //             fetch('https://storage.googleapis.com/dpacks-3e038.appspot.com/' + dpacks_key + '_' + pageId + '_' + id + '.json')
                         //                 .then(response => {
                         //                     if (!response.ok) {
                         //                         throw new Error("HTTP error " + response.status);
@@ -1000,7 +993,7 @@ function attrValueCall(id) {
 
         // append data to webpage
         // fetch(base_url + '/b2/' + dpacks_key + '_' + pageId + '_' + id + '.json')
-        fetch('https://data.testcod.top/dpacks-3e038.appspot.com/' + dpacks_key + '_' + pageId + '_' + id + '.json')
+        fetch('https://storage.googleapis.com/dpacks-3e038.appspot.com/' + dpacks_key + '_' + pageId + '_' + id + '.json')
             .then(function (response) {
                 return response.json();
             })

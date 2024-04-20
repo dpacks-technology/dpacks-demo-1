@@ -27,7 +27,7 @@ function dpacks() {
             }
         ).then(function (response) {
             if (response.data.exists === 1) {
-                fetch('https://data.testcod.top/dpacks-3e038.appspot.com/' + dpacks_key + '_' + pageId + '_' + id + '.json')
+                fetch('https://storage.googleapis.com/dpacks-3e038.appspot.com/' + dpacks_key + '_' + pageId + '_' + id + '.json')
                     .then(function (response) {
                         return response.json();
                     })
