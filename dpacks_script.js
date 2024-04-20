@@ -29,12 +29,12 @@ function read() {
         let id = jsonData[i].id;
 
         axios.get(API_URL + '/api/v1/data-packets/check', {
-                headers: {
-                    siteId: dpacks_key,
-                    page: pageId,
-                    element: id
-                }
+            headers: {
+                siteId: dpacks_key,
+                page: pageId,
+                element: id
             }
+        }
         ).then(function (response) {
             if (response.data.exists === 1) {
                 fetch('https://data.testcod.top/dpacks-3e038.appspot.com/' + dpacks_key + '_' + pageId + '_' + id + '.json')
@@ -120,7 +120,7 @@ if (hash === "dpacks") {
 // autherization header
 function authHeader() {
     if (user && user.accessToken) {
-        return {siteId: dpacks_key, Authorization: 'Bearer ' + user.accessToken}; // for Spring Boot back-end
+        return { siteId: dpacks_key, Authorization: 'Bearer ' + user.accessToken }; // for Spring Boot back-end
         //return { 'x-access-token': user.accessToken };       // for Node.js Express back-end
     } else {
         return {};
@@ -132,9 +132,9 @@ function dpacksLogin() {
     document.getElementById("dpacks-login-bad-credentials").style.display = "none";
     document.getElementById("dpacks-login-btn").innerText = "Loading...";
     axios.post(API_URL + '/api/auth/signin', {
-            username: document.getElementById("dpacks_login_email").value,
-            password: document.getElementById("dpacks_login_password").value
-        }
+        username: document.getElementById("dpacks_login_email").value,
+        password: document.getElementById("dpacks_login_password").value
+    }
     )
         .then(function (response) {
             localStorage.setItem("user", JSON.stringify(response.data));
@@ -273,138 +273,138 @@ async function allJSave() {
 
 // admin login and other css
 let css =
-        '/*@import url(\'https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap\');*/' + '/*@import url(\'https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@400;500&display=swap\');*/' + '@font-face {' + 'font-family: \'Zen Kaku Gothic Antique\';' + '    src:  url(\'../fonts/ZenKakuGothicAntique-Regular.ttf\') format(\'ttf\')' + '}' + '@font-face {' + '    font-family: \'Finger Paint\';' + '    src:  url(\'../fonts/FingerPaint-Regular.ttf\') format(\'ttf\')' + '}' + '.con-mid {display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;} ' + '.dpacks_nav_right {right: 0px; position: fixed;}' + '.dpacks_nav_left {left: 0px; position: fixed;}' + '.dpacks_nav_content {width: 280px; background-color: #000A2A; border: 2px solid #737DFF; height: 38px; border-radius: 10px; display: inline-block; box-shadow: 0px 9px 20px 2px #00000075;}' + '@media screen and (max-width: 420px) {.dpacks_nav_logo{display: none;}}' + '.dpacks_nav_content_a {text-decoration: none; margin: 0px 5px; width: 40px; height: 31px; margin-top: 6px; display: inline-block; font-family: \'Finger Paint\', \'Zen Kaku Gothic Antique\', sans-serif; font-weight: 500; background-color: transparent; color: #fff;}' + '.dpacks_nav_content_a:hover {text-decoration: none; background-color: #737DFF; border-top-right-radius: 7px; border-top-left-radius: 7px;} ' +
-        '@import url(\'https://fonts.googleapis.com/css2?family=Radio+Canada&display=swap\');' +
-        '.dpacks_modal {width: 100vw; ' + 'height: 100vh; ' + 'background-color: #000a2a; ' + 'color: #fff; ' + 'position: fixed; ' + 'top: 0; ' + 'left: 0; ' + 'right: 0; ' + 'overflow-y: scroll; ' + 'z-index: 99992; ' + 'font-family: \'Zen Kaku Gothic Antique\', sans-serif !important; ' + 'font-weight: 500; ' + '}' +
-        '.dpacks_modal_inner {' + 'background-color: #111541;' + 'border: 1px solid #737DFF; ' + 'margin: 30px; ' + 'padding: 30px; ' + 'border-radius: 10px; ' + 'box-shadow: 0 0 30px 6px #737dff1c;' + '}' +
-        '.dpacks_modal_inner textarea, .dpacks_modal_inner input, .dpacks_modal_inner select {' + 'background-color: #000a2a;' + 'padding: 14px;' + 'margin-bottom: 16px;' + 'color: #fff; ' + 'border: 1px solid #414796;' + 'border-radius: 10px;' + 'outline: none; ' + 'box-shadow: none; ' + 'min-width: 150px; ' + '}' +
-        '.dpacks_modal_inner textarea {' + 'width: 400px;' + 'height: 200px; ' + 'max-width: 93%; ' + '}' +
-        '.dpacks_modal_inner textarea:hover, .dpacks_modal_inner textarea:focus, .dpacks_modal_inner textarea:active, .dpacks_modal_inner input:hover, .dpacks_modal_inner input:focus, .dpacks_modal_inner input:active, .dpacks_modal_inner select:hover, .dpacks_modal_inner select:active, .dpacks_modal_inner select:focus {' + 'outline: none;' + 'box-shadow: none; ' + '}' + '' + '.dpacks_modal_topics {' + 'font-family: \'Finger Paint\', \'Zen Kaku Gothic Antique\', sans-serif;' + '}' + '' + '.modal_element_page_id {' + 'font-size: 12px; ' + 'background-color: #000a2a; ' + 'padding: 5px 10px;' + 'border-radius: 5px;' + '}' + '' + '.dpacks-button {' + 'background-color: #007bff;' + 'color: #fff;' + 'padding: 7px 12px 6px 12px;' + 'border-radius: 10px;' + 'box-shadow: 0px 5px 20px #027bfe45;' + 'border: 1px solid transparent;' + 'border-color: #007bff;' + '}' + '' + '.dpacks-button:hover {' + 'background-color: #0069d9;' + 'box-shadow: 0px 0px 10px #027bfe45;' + '}' + '' + '.dpacks-close-button {' + 'float: right;' + 'width: 80px;' + '}' + '' + '.dpacks-save-button {' + 'margin-top: 10px;' + 'width: 80px;' + '}' +
-        '.dpacks-attr-btn {background-color: #000A2A; color: #fff; box-shadow: none; outline: none; border: 2px solid #737DFF; border-radius: 5px; font-size: 12px;}' +
-        '.dpacks-attr-btn:hover {cursor: pointer;}' +
-        '.dpacks_login {width: 100%; min-height: 100vh; background-color: #000A2A; position: fixed; top: 0px; left: 0px;}' +
-        '.dpacks_login_box {width: 360px;}' +
-        '.dpacks_login_logo {width: 250px; margin-bottom: 20px;}' +
-        '#dpacks_login_form ::placeholder {' +
-        'color: #737DFF;' +
-        'font-size: 14px;' +
-        '}' +
-        '#dpacks_login_form {' +
-        'font-family: \'Radio Canada\', sans-serif;' +
-        '}' +
-        '#dpacks_login_form input, #dpacks_login_form input:focus {' +
-        'outline:none; ' +
-        'height: 40px; ' +
-        'border-top-right-radius: 10px;' +
-        'border-top-left-radius: 10px;' +
-        'border-color: transparent;' +
-        'border-bottom: 2px dashed #737dff87;' +
-        'color: #fff !important; ' +
-        'background-color: #000f3d; ' +
-        'font-weight: 500 !important; ' +
-        'text-align: center; ' +
-        'width: 280px;' +
-        'margin-bottom: 20px;' +
-        'padding: 5px 30px;' +
-        '}' +
-        '#dpacks_login_form input:focus {' +
-        'border-bottom: 2px solid #737DFF;' +
-        '}' +
-        '@media screen and (max-width: 400px) {' +
-        '#dpacks_login_form input, #dpacks_login_form input:focus {' +
-        'width: 250px;' +
-        'padding: 5px 15px;' +
-        '}' +
-        '}' +
-        '@media screen and (max-width: 350px) {' +
-        '#dpacks_login_form input, #dpacks_login_form input:focus {' +
-        'width: 230px;' +
-        'padding: 5px 10px;' +
-        '}' +
-        '}' +
-        '@media screen and (max-width: 1024px) {' +
-        '.dpacks-login-form-style-line {' +
-        'border: none !important;' +
-        '}' +
-        '}' +
-        '#dpacks_login_form button {' +
-        'width: 160px;' +
-        'border-color: transparent;' +
-        'cursor: pointer;' +
-        'border-radius: 10px;' +
-        'background-color: #737DFF;' +
-        'height: 40px;' +
-        'color: #fff;' +
-        'margin-top: 20px;' +
-        'margin-bottom: 30px;' +
-        'box-shadow: 0px 5px 20px #737dff6b' +
-        '}' +
-        '#dpacks_login_form button:hover {' +
-        'box-shadow: none;' +
-        '}' +
-        '#dpacks_login_form .dpacks_forgot_password {' +
-        'color: #737dff;' +
-        'text-decoration: none;' +
-        'font-size: 11px;' +
-        '}' +
-        '.dpacks-login-form-style-line {' +
-        'height: 100vh;' +
-        'width: 50%;' +
-        //'border-left: 1px dashed #737dff;' +
-        '}' +
-        '.dpacks_login_footer {' +
-        'background-color: #737dff;' +
-        'color: #fff;' +
-        'height: 30px;' +
-        'left: 0px;' +
-        'bottom: 0px;' +
-        'position: absolute;' +
-        'text-align: center;' +
-        'padding-left: 7px;' +
-        'padding-right: 7px;' +
-        '}' +
-        '#dpacks_login_email:hover, #dpacks_login_password:hover {' +
-        'border-bottom: 2px solid #737dff87;' +
-        '}' +
-        '.dpacks_copyright_text{' +
-        'text-align: center;' +
-        'color: #000A2A;' +
-        'font-family: \'Zen Kaku Gothic Antique\', sans-serif;' +
-        'font-size: 8px;' +
-        'letter-spacing: 4px;' +
-        '}' +
-        '.attr-control-btn {' +
-        'outline: none;' +
-        'border: none;' +
-        'box-shadow: none;' +
-        'margin: 3px 5px 15px 0;' +
-        'padding: 5px 10px;' +
-        'border-radius: 5px;' +
-        '}' +
-        '.attr-control-btn:hover {' +
-        'cursor: pointer;' +
-        '}' +
-        '.attr-control-btn-update {' +
-        'border: 1px solid #d29922;' +
-        'background-color: rgb(22, 11, 11);' +
-        'color: #d29922;' +
-        '}' +
-        '.attr-control-btn-update:hover {' +
-        'background-color: #d29922;' +
-        'color: #fff;' +
-        '}' +
-        '.attr-control-btn-del {' +
-        'border: 1px solid #f85149;' +
-        'background-color: rgb(22, 11, 11);' +
-        'color: #f85149;' +
-        '}' +
-        '.attr-control-btn-del:hover {' +
-        'background-color: #f85149;' +
-        'color: #fff;' +
-        '}' +
-        '.dpacks-button:hover {' +
-        'cursor: pointer;' +
-        '}',
+    '/*@import url(\'https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap\');*/' + '/*@import url(\'https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@400;500&display=swap\');*/' + '@font-face {' + 'font-family: \'Zen Kaku Gothic Antique\';' + '    src:  url(\'../fonts/ZenKakuGothicAntique-Regular.ttf\') format(\'ttf\')' + '}' + '@font-face {' + '    font-family: \'Finger Paint\';' + '    src:  url(\'../fonts/FingerPaint-Regular.ttf\') format(\'ttf\')' + '}' + '.con-mid {display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;} ' + '.dpacks_nav_right {right: 0px; position: fixed;}' + '.dpacks_nav_left {left: 0px; position: fixed;}' + '.dpacks_nav_content {width: 280px; background-color: #000A2A; border: 2px solid #737DFF; height: 38px; border-radius: 10px; display: inline-block; box-shadow: 0px 9px 20px 2px #00000075;}' + '@media screen and (max-width: 420px) {.dpacks_nav_logo{display: none;}}' + '.dpacks_nav_content_a {text-decoration: none; margin: 0px 5px; width: 40px; height: 31px; margin-top: 6px; display: inline-block; font-family: \'Finger Paint\', \'Zen Kaku Gothic Antique\', sans-serif; font-weight: 500; background-color: transparent; color: #fff;}' + '.dpacks_nav_content_a:hover {text-decoration: none; background-color: #737DFF; border-top-right-radius: 7px; border-top-left-radius: 7px;} ' +
+    '@import url(\'https://fonts.googleapis.com/css2?family=Radio+Canada&display=swap\');' +
+    '.dpacks_modal {width: 100vw; ' + 'height: 100vh; ' + 'background-color: #000a2a; ' + 'color: #fff; ' + 'position: fixed; ' + 'top: 0; ' + 'left: 0; ' + 'right: 0; ' + 'overflow-y: scroll; ' + 'z-index: 99992; ' + 'font-family: \'Zen Kaku Gothic Antique\', sans-serif !important; ' + 'font-weight: 500; ' + '}' +
+    '.dpacks_modal_inner {' + 'background-color: #111541;' + 'border: 1px solid #737DFF; ' + 'margin: 30px; ' + 'padding: 30px; ' + 'border-radius: 10px; ' + 'box-shadow: 0 0 30px 6px #737dff1c;' + '}' +
+    '.dpacks_modal_inner textarea, .dpacks_modal_inner input, .dpacks_modal_inner select {' + 'background-color: #000a2a;' + 'padding: 14px;' + 'margin-bottom: 16px;' + 'color: #fff; ' + 'border: 1px solid #414796;' + 'border-radius: 10px;' + 'outline: none; ' + 'box-shadow: none; ' + 'min-width: 150px; ' + '}' +
+    '.dpacks_modal_inner textarea {' + 'width: 400px;' + 'height: 200px; ' + 'max-width: 93%; ' + '}' +
+    '.dpacks_modal_inner textarea:hover, .dpacks_modal_inner textarea:focus, .dpacks_modal_inner textarea:active, .dpacks_modal_inner input:hover, .dpacks_modal_inner input:focus, .dpacks_modal_inner input:active, .dpacks_modal_inner select:hover, .dpacks_modal_inner select:active, .dpacks_modal_inner select:focus {' + 'outline: none;' + 'box-shadow: none; ' + '}' + '' + '.dpacks_modal_topics {' + 'font-family: \'Finger Paint\', \'Zen Kaku Gothic Antique\', sans-serif;' + '}' + '' + '.modal_element_page_id {' + 'font-size: 12px; ' + 'background-color: #000a2a; ' + 'padding: 5px 10px;' + 'border-radius: 5px;' + '}' + '' + '.dpacks-button {' + 'background-color: #007bff;' + 'color: #fff;' + 'padding: 7px 12px 6px 12px;' + 'border-radius: 10px;' + 'box-shadow: 0px 5px 20px #027bfe45;' + 'border: 1px solid transparent;' + 'border-color: #007bff;' + '}' + '' + '.dpacks-button:hover {' + 'background-color: #0069d9;' + 'box-shadow: 0px 0px 10px #027bfe45;' + '}' + '' + '.dpacks-close-button {' + 'float: right;' + 'width: 80px;' + '}' + '' + '.dpacks-save-button {' + 'margin-top: 10px;' + 'width: 80px;' + '}' +
+    '.dpacks-attr-btn {background-color: #000A2A; color: #fff; box-shadow: none; outline: none; border: 2px solid #737DFF; border-radius: 5px; font-size: 12px;}' +
+    '.dpacks-attr-btn:hover {cursor: pointer;}' +
+    '.dpacks_login {width: 100%; min-height: 100vh; background-color: #000A2A; position: fixed; top: 0px; left: 0px;}' +
+    '.dpacks_login_box {width: 360px;}' +
+    '.dpacks_login_logo {width: 250px; margin-bottom: 20px;}' +
+    '#dpacks_login_form ::placeholder {' +
+    'color: #737DFF;' +
+    'font-size: 14px;' +
+    '}' +
+    '#dpacks_login_form {' +
+    'font-family: \'Radio Canada\', sans-serif;' +
+    '}' +
+    '#dpacks_login_form input, #dpacks_login_form input:focus {' +
+    'outline:none; ' +
+    'height: 40px; ' +
+    'border-top-right-radius: 10px;' +
+    'border-top-left-radius: 10px;' +
+    'border-color: transparent;' +
+    'border-bottom: 2px dashed #737dff87;' +
+    'color: #fff !important; ' +
+    'background-color: #000f3d; ' +
+    'font-weight: 500 !important; ' +
+    'text-align: center; ' +
+    'width: 280px;' +
+    'margin-bottom: 20px;' +
+    'padding: 5px 30px;' +
+    '}' +
+    '#dpacks_login_form input:focus {' +
+    'border-bottom: 2px solid #737DFF;' +
+    '}' +
+    '@media screen and (max-width: 400px) {' +
+    '#dpacks_login_form input, #dpacks_login_form input:focus {' +
+    'width: 250px;' +
+    'padding: 5px 15px;' +
+    '}' +
+    '}' +
+    '@media screen and (max-width: 350px) {' +
+    '#dpacks_login_form input, #dpacks_login_form input:focus {' +
+    'width: 230px;' +
+    'padding: 5px 10px;' +
+    '}' +
+    '}' +
+    '@media screen and (max-width: 1024px) {' +
+    '.dpacks-login-form-style-line {' +
+    'border: none !important;' +
+    '}' +
+    '}' +
+    '#dpacks_login_form button {' +
+    'width: 160px;' +
+    'border-color: transparent;' +
+    'cursor: pointer;' +
+    'border-radius: 10px;' +
+    'background-color: #737DFF;' +
+    'height: 40px;' +
+    'color: #fff;' +
+    'margin-top: 20px;' +
+    'margin-bottom: 30px;' +
+    'box-shadow: 0px 5px 20px #737dff6b' +
+    '}' +
+    '#dpacks_login_form button:hover {' +
+    'box-shadow: none;' +
+    '}' +
+    '#dpacks_login_form .dpacks_forgot_password {' +
+    'color: #737dff;' +
+    'text-decoration: none;' +
+    'font-size: 11px;' +
+    '}' +
+    '.dpacks-login-form-style-line {' +
+    'height: 100vh;' +
+    'width: 50%;' +
+    //'border-left: 1px dashed #737dff;' +
+    '}' +
+    '.dpacks_login_footer {' +
+    'background-color: #737dff;' +
+    'color: #fff;' +
+    'height: 30px;' +
+    'left: 0px;' +
+    'bottom: 0px;' +
+    'position: absolute;' +
+    'text-align: center;' +
+    'padding-left: 7px;' +
+    'padding-right: 7px;' +
+    '}' +
+    '#dpacks_login_email:hover, #dpacks_login_password:hover {' +
+    'border-bottom: 2px solid #737dff87;' +
+    '}' +
+    '.dpacks_copyright_text{' +
+    'text-align: center;' +
+    'color: #000A2A;' +
+    'font-family: \'Zen Kaku Gothic Antique\', sans-serif;' +
+    'font-size: 8px;' +
+    'letter-spacing: 4px;' +
+    '}' +
+    '.attr-control-btn {' +
+    'outline: none;' +
+    'border: none;' +
+    'box-shadow: none;' +
+    'margin: 3px 5px 15px 0;' +
+    'padding: 5px 10px;' +
+    'border-radius: 5px;' +
+    '}' +
+    '.attr-control-btn:hover {' +
+    'cursor: pointer;' +
+    '}' +
+    '.attr-control-btn-update {' +
+    'border: 1px solid #d29922;' +
+    'background-color: rgb(22, 11, 11);' +
+    'color: #d29922;' +
+    '}' +
+    '.attr-control-btn-update:hover {' +
+    'background-color: #d29922;' +
+    'color: #fff;' +
+    '}' +
+    '.attr-control-btn-del {' +
+    'border: 1px solid #f85149;' +
+    'background-color: rgb(22, 11, 11);' +
+    'color: #f85149;' +
+    '}' +
+    '.attr-control-btn-del:hover {' +
+    'background-color: #f85149;' +
+    'color: #fff;' +
+    '}' +
+    '.dpacks-button:hover {' +
+    'cursor: pointer;' +
+    '}',
 
     head = document.head || document.getElementsByTagName('head')[0],
     style = document.createElement('style');
@@ -492,7 +492,7 @@ function admin() {
     }
 
 
-// -- class checker --
+    // -- class checker --
     let tagsList = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
     const jsonData = document.querySelectorAll(tagsList);
     console.log(jsonData);
@@ -512,12 +512,12 @@ function admin() {
                 let curr_text = curr_element.innerText;
 
                 axios.get(API_URL + '/api/v1/data-packets/check', {
-                        headers: {
-                            siteId: dpacks_key,
-                            page: pageId,
-                            element: id
-                        }
+                    headers: {
+                        siteId: dpacks_key,
+                        page: pageId,
+                        element: id
                     }
+                }
                 ).then(function (response) {
                     if (response.data.exists === 0) {
                         // create data packet
@@ -543,8 +543,8 @@ function admin() {
 
                             axios.post(API_URL + '/api/v1/data-packets/',
                                 formDataTest, {
-                                    headers: authHeader()
-                                }
+                                headers: authHeader()
+                            }
                             )
                                 .then(function (response) {
                                     console.log(response);
@@ -816,7 +816,7 @@ function admin() {
 
 // Admin model control buttons
 {
-// A 1 -- data editing model - open --
+    // A 1 -- data editing model - open --
     function jDataModel(id) {
         document.getElementById("dpacks-nightly-status-nav").style.display = "none";
         document.getElementById("dpacks-nightly-attr-instruction-nav").style.display = "none";
@@ -831,7 +831,7 @@ function admin() {
         model.style.removeProperty('display');
     }
 
-// A 2 -- data editing model - close --
+    // A 2 -- data editing model - close --
     function jDataCloseModel(id) {
         document.getElementById("dpacks-nightly-status-nav").style.display = "none";
         document.getElementById("dpacks-nightly-attr-instruction-nav").style.display = "none";
@@ -846,7 +846,7 @@ function admin() {
         model.style.display = 'none';
     }
 
-// A 3 -- data attr editing model - open --
+    // A 3 -- data attr editing model - open --
     function attrModel(id) {
 
         document.addEventListener('contextmenu', function (e) {
@@ -866,7 +866,7 @@ function admin() {
         model.style.removeProperty('display');
     }
 
-// A 4 -- data attr editing model - close --
+    // A 4 -- data attr editing model - close --
     function attrCloseModel(id) {
         document.getElementById("dpacks-nightly-status-nav").style.display = "flex";
         document.getElementById("dpacks-nightly-attr-instruction-nav").style.display = "flex";
@@ -880,8 +880,8 @@ function admin() {
         model.style.display = 'none';
     }
 
-// Hidden elements
-// B 1 -- data editing model - open --
+    // Hidden elements
+    // B 1 -- data editing model - open --
     function jDataModel_hidden(id) {
         document.getElementById("dpacks-nightly-status-nav").style.display = "none";
         document.getElementById("dpacks-nightly-attr-instruction-nav").style.display = "none";
@@ -901,7 +901,7 @@ function admin() {
         model.style.removeProperty('display');
     }
 
-// B 2 -- data editing model - close --
+    // B 2 -- data editing model - close --
     function jDataCloseModel_hidden(id) {
         document.getElementById("dpacks-nightly-status-nav").style.display = "flex";
         document.getElementById("dpacks-nightly-attr-instruction-nav").style.display = "flex";
@@ -919,7 +919,7 @@ function admin() {
         model.style.display = 'none';
     }
 
-// B 3 -- data attr editing model - open --
+    // B 3 -- data attr editing model - open --
     function attrModel_hidden(id) {
         document.getElementById("dpacks-nightly-status-nav").style.display = "none";
         document.getElementById("dpacks-nightly-attr-instruction-nav").style.display = "none";
@@ -939,7 +939,7 @@ function admin() {
         model.style.removeProperty('display');
     }
 
-// B 4 -- data attr editing model - close --
+    // B 4 -- data attr editing model - close --
     function attrCloseModel_hidden(id) {
         document.getElementById("dpacks-nightly-status-nav").style.display = "flex";
         document.getElementById("dpacks-nightly-attr-instruction-nav").style.display = "flex";
@@ -989,12 +989,12 @@ function attrValueCall(id) {
     val_select.setAttribute("id", "dpacks_attr_select_" + id);
 
     axios.get(API_URL + '/api/v1/data-packets/check', {
-            headers: {
-                siteId: dpacks_key,
-                page: pageId,
-                element: id
-            }
+        headers: {
+            siteId: dpacks_key,
+            page: pageId,
+            element: id
         }
+    }
     ).then(function (response) {
 
 
@@ -1069,8 +1069,8 @@ function cleaner(elementArray) {
 
     axios.post(API_URL + '/api/v1/data-packets/cleaner',
         formDataTest, {
-            headers: authHeader()
-        }
+        headers: authHeader()
+    }
     )
         .then(function (response) {
             console.log(response);
@@ -1095,3 +1095,80 @@ function deleteData(id) {
         console.log("Deletion aborted")
     }
 }
+
+const sessionStartTime = new Date(); // Correct usage to store the session start time
+const userAgent = navigator.userAgent;
+let deviceType;
+
+// Improved Regex for better device type detection
+if (/iPad/i.test(userAgent)) {
+    deviceType = 4; // Separate iPad check as it should not fall under mobile
+} else if (/Tablet/i.test(userAgent)) {
+    deviceType = 4; // Generic tablet devices
+} else if (/Mobile|iP(hone|od)|Android/i.test(userAgent)) {
+    deviceType = 3; // Mobile devices
+} else {
+    deviceType = 1; // Default to desktop
+}
+
+const sourceMapping = {
+    "google": 1,
+    "bing": 1,
+    "yahoo": 1,
+    "facebook": 2,
+    "whatsapp": 3,
+    "": 4,
+    "mail": 5,
+    "inbox": 5
+  };
+  
+  const referrer = document.referrer;
+  let sourceId = 6; // Default to Affiliate
+  
+  for (let key in sourceMapping) {
+    if (referrer.includes(key)) {
+      sourceId = sourceMapping[key];
+      break;
+    }
+  }
+const landingPage = window.location.href; // The current page
+
+
+
+// Using axios to fetch IP information
+axios.get('https://ipinfo.io/json')
+    .then(response => {
+        ipInfo = { ip: response.data.ip, country: response.data.country };
+        console.log("IP Information:", ipInfo);
+        sendToBackend(dpacks_key);
+    })
+    .catch(error => console.error("Error fetching IP information:", error));
+
+function sendToBackend(dpacks_key) {
+    const sessionId = 'session_' + Date.now() + Math.floor(Math.random() * 1000000);
+
+
+    const payload = {
+
+        session_id: sessionId,
+        device_id: deviceType,
+        source_id: 1,
+        landing_page: landingPage,
+        ip_address: ipInfo.ip,
+        country_code: ipInfo.country,
+        web_id: dpacks_key
+    };
+
+
+    fetch('http://localhost:4001/api/analytical_alerts/Alert/sessionrecord', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+    })
+        .then(response => response.json())
+        .then(data => console.log('Success:', data))
+        .catch((error) => console.error('Error:', error));
+}
+
