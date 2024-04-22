@@ -1118,12 +1118,13 @@ const sourceMapping = {
     "facebook": 2,
     "whatsapp": 3,
     "": 4,
-    "mail": 5,
+    "mail.google": 5,
     "inbox": 5
   };
   
   const referrer = document.referrer;
   let sourceId = 6; // Default to Affiliate
+
   
   for (let key in sourceMapping) {
     if (referrer.includes(key)) {
