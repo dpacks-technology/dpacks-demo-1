@@ -1152,15 +1152,17 @@ function sendToBackend(dpacks_key) {
 
         session_id: sessionId,
         device_id: deviceType,
-        source_id: 1,
+        source_id: sourceId,
         landing_page: landingPage,
         ip_address: ipInfo.ip,
         country_code: ipInfo.country,
         web_id: dpacks_key
     };
 
+    console.log("Payload:", payload);
 
-    fetch('http://localhost:4001/api/analytical_alerts/Alert/sessionrecord', {
+
+    fetch('http://localhost:4001/api/analytics/Alert/sessionrecord', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
