@@ -1123,6 +1123,10 @@ const sourceMapping = {
   };
   
   const referrer = document.referrer;
+  console.log("Referrer:", referrer)
+
+  
+
   let sourceId = 6; // Default to Affiliate
 
   
